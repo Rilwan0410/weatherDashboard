@@ -1,18 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&family=Poppins:wght@300;400;500;600;700&family=Sometype+Mono:wght@400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   padding: 0;
   margin: 0;
-  overflow:hidden;
-  /* background-image: url('./imgs/weather-background.jpeg');
-    background-size: cover;
-    backdrop-filter: blur(10px); */
+  font-family: montserrat;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
+  padding: 15px;
+}
 
-.background-image{
-    width:100%;
-    height:100%;
-    filter: blur(12px);
-    position:absolute;
-    transform:scale(1.1);
-    z-index:-1;
+header h1 {
+  font-weight: 400;
+  font-size: 3.5rem;
+  color: rgb(51, 47, 47);
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  position: absolute;
+  transform: scale(1.1);
+  z-index: -1;
+}
+
+.dashboard-container {
+  width: 100%;
+  height: 700px;
+  margin-top: 10px;
+  border: 2px solid black;
+}
+
+.dashboard-left {
+  height: 100px;
+  width: 100px;
+}
+.dashboard-right {
 }
