@@ -1,0 +1,16 @@
+body {
+  padding: 0;
+  margin: 0;
+  /* background-image: url('./imgs/weather-background.jpeg');
+    background-size: cover;
+    backdrop-filter: blur(10px); */
+}
+
+
+.background-image{
+    width:100%;
+    height:100%;
+    filter: blur(12px);
+    position:absolute;
+    transform:scale(1.1);
+}
