@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  overflow:hidden;
   /* background-image: url('./imgs/weather-background.jpeg');
     background-size: cover;
     backdrop-filter: blur(10px); */
@@ -13,4 +14,5 @@ body {
     filter: blur(12px);
     position:absolute;
     transform:scale(1.1);
+    z-index:-1;
 }
