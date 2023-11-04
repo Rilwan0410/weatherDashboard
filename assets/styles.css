@@ -3,15 +3,17 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: montserrat;
 }
 
 body {
   padding: 0;
   margin: 0;
-  font-family: montserrat;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
@@ -25,7 +27,7 @@ header {
 }
 
 header h1 {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 3.5rem;
   color: rgb(51, 47, 47);
 }
@@ -41,14 +43,214 @@ header h1 {
 
 .dashboard-container {
   width: 100%;
+  gap: 15px;
   height: 700px;
   margin-top: 10px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0 20px; */
 }
 
 .dashboard-left {
-  height: 100px;
-  width: 100px;
+  height: 100%;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items:center;
+  flex-direction:column;
+  overflow:scroll;
 }
+
+.divider{
+  width:95%;
+  height:1px;
+  background:rgb(132, 125, 125);
+  margin:40px auto;
+}
+
+.previous-searches{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+.previous-search{
+  background:rgba(255,255,255,0.8);
+  font-size:1.4rem;
+  border-radius:10px;
+  color:black;
+  display:grid;
+  place-items:center;
+  box-shadow:0 2px 5px grey;
+  cursor:pointer;
+  height:50px;
+  transition: .3s ease-in-out;
+}
+.previous-search:hover{
+  transform:translateY(-2px);
+  box-shadow:0 2px 10px grey;
+}
+
 .dashboard-right {
+  height: 100%;
+  width: 1010px;
+  background: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.dashboard-right,
+.dashboard-left {
+  border-radius: 10px;
+}
+
+.search-form h2 {
+  font-size: 2.4rem;
+  text-align: center;
+  font-weight: 400;
+  padding: 20px;
+}
+
+.inputs {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 70%;
+  font-size: 1.5rem;
+  padding-left: 2px;
+  /* padding: 2px 5px; */
+  /* border: 1px solid black; */
+  background: rgba(255, 255, 255, 0.8);
+}
+.search-button {
+  width: 25%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 500;
+  background:rgb(91, 91, 191);
+  color: rgb(80, 76, 76);
+  color:white;
+}
+
+.search-input,
+.search-button {
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+}
+
+.current-city {
+  /* background: black; */
+  height: 50%;
+  width: 98%;
+  margin-top: 10px;
+  border-radius: 10px;
+  color: black;
+  padding: 0 10px;
+}
+
+.current-city h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 400;
+}
+
+.current-city-cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  gap: 15px;
+}
+
+.current-city-card {
+  background: rgba(255, 255, 255, 0.7);
+  width: 325px;
+  height: 250px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 10px rgb(170, 157, 157);
+}
+.current-city-card h2 {
+  color: black;
+  font-weight: 500;
+}
+
+.current-city-card p {
+  font-size: 3.5rem;
+  color: black;
+  margin-top: 50px;
+}
+
+.value {
+  font-weight: 300;
+  color: rgb(47, 45, 45);
+}
+
+.five-day-forecast {
+  /* background: black; */
+  height: 50%;
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 10px;
+  /* padding: 0 10px; */
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  gap: 10px;
+  padding-top: 45px;
+}
+
+.five-day-forecast h2 {
+  color: black;
+  position: absolute;
+  font-size: 2.5rem;
+  font-weight: 400;
+  /* left:20px; */
+  top: 0;
+}
+
+.forecast-card {
+  background: rgba(255, 255, 255, 0.7);
+  height: 250px;
+  width: 190px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 10px rgb(170, 157, 157);
+}
+
+.forecase-date {
+  font-size: 1.7rem;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-top: 25px;
+}
+
+.forecast-values {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+.forecast {
+  font-size: 1.3rem;
+}
+
+.forecast-category {
+  font-weight: 600;
 }

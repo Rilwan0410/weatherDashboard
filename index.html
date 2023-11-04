@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/script.js" defer></script>
   </head>
@@ -18,8 +25,127 @@
     />
     <main>
       <div class="dashboard-container">
-        <div class="dashboard-left"></div>
-        <div class="dashboard-right"></div>
+        <div class="dashboard-left">
+          <form action="" class="search-form">
+            <h2>Search For A City</h2>
+            <div class="inputs">
+              <input type="text" class="search-input" />
+              <input type="submit" value="Search" class="search-button" />
+            </div>
+            <div class="divider"></div>
+            <div class="previous-searches">
+              <div class="previous-search">Miami</div>
+              <div class="previous-search">Portland</div>
+              <div class="previous-search">Atlanta</div>
+              <div class="previous-search">Orlando</div>
+              <div class="previous-search">Tallahasee</div>
+            </div>
+          </form>
+        </div>
+        <div class="dashboard-right">
+          <div class="current-city">
+            <h2>Jacksonville</h2>
+            <div class="current-city-cards">
+              <div class="tempature current-city-card">
+                <h2>Tempature</h2>
+                <p class="number tempature-value">
+                  <span class="value">76</span> F
+                </p>
+              </div>
+              <div class="wind current-city-card">
+                <h2>Wind</h2>
+                <p class="number wind-value">
+                  <span class="value">8.43</span> MPH
+                </p>
+              </div>
+              <div class="humidity current-city-card">
+                <h2>Humidity</h2>
+                <p class="number humidity-value">
+                  <span class="value">44</span> %
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="five-day-forecast">
+            <h2>5-Day Forecast</h2>
+
+            <div class="forecast-card">
+              <div class="forecase-date">05/10/2013</div>
+              <i class="fa-solid fa-sun icon"></i>
+              <div class="forecast-values">
+                <div class="forecast-temp forecast">
+                  <span class="forecast-category">Temp:</span> 66.43 F
+                </div>
+                <div class="forecast-wind forecast">
+                  <span class="forecast-category">Wind:</span> 3.94 MPH
+                </div>
+                <div class="forecast-humidity forecast">
+                  <span class="forecast-category">Humidity:</span> 63 %
+                </div>
+              </div>
+            </div>
+            <div class="forecast-card">
+              <div class="forecase-date">05/11/2013</div>
+              <i class="fa-solid fa-sun icon"></i>
+              <div class="forecast-values">
+                <div class="forecast-temp forecast">
+                  <span class="forecast-category">Temp:</span> 64.43 F
+                </div>
+                <div class="forecast-wind forecast">
+                  <span class="forecast-category">Wind:</span> 3.92 MPH
+                </div>
+                <div class="forecast-humidity forecast">
+                  <span class="forecast-category">Humidity:</span> 60 %
+                </div>
+              </div>
+            </div>
+            <div class="forecast-card">
+              <div class="forecase-date">05/12/2013</div>
+              <i class="fa-solid fa-sun icon"></i>
+              <div class="forecast-values">
+                <div class="forecast-temp forecast">
+                  <span class="forecast-category">Temp:</span> 70.43 F
+                </div>
+                <div class="forecast-wind forecast">
+                  <span class="forecast-category">Wind:</span> 3.84 MPH
+                </div>
+                <div class="forecast-humidity forecast">
+                  <span class="forecast-category">Humidity:</span> 52 %
+                </div>
+              </div>
+            </div>
+            <div class="forecast-card">
+              <div class="forecase-date">05/13/2013</div>
+              <i class="fa-solid fa-sun icon"></i>
+              <div class="forecast-values">
+                <div class="forecast-temp forecast">
+                  <span class="forecast-category">Temp:</span> 66.33 F
+                </div>
+                <div class="forecast-wind forecast">
+                  <span class="forecast-category">Wind:</span> 3.54 MPH
+                </div>
+                <div class="forecast-humidity forecast">
+                  <span class="forecast-category">Humidity:</span> 60 %
+                </div>
+              </div>
+            </div>
+            <div class="forecast-card">
+              <div class="forecase-date">05/10/2013</div>
+              <i class="fa-solid fa-sun icon"></i>
+              <div class="forecast-values">
+                <div class="forecast-temp forecast">
+                  <span class="forecast-category">Temp:</span> 60.43 F
+                </div>
+                <div class="forecast-wind forecast">
+                  <span class="forecast-category">Wind:</span> 3.34 MPH
+                </div>
+                <div class="forecast-humidity forecast">
+                  <span class="forecast-category">Humidity:</span> 65 %
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </body>
