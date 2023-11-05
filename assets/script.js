@@ -1,11 +1,11 @@
-const previousSearch = [];
-const searchButton = document.getElementById("search-button");
-const searchInput = document.getElementById("search-input");
 const API_KEY = "b3a21d1a0bf55d1cd270ca55053ba8b8";
 const currentWeatherURL =
   "https://api.openweathermap.org/data/2.5/weather?units=imperial&";
 const fiveDayForecastURL =
   "https://api.openweathermap.org/data/2.5/forecast?units=imperial&";
+const previousSearch = [];
+const searchButton = document.getElementById("search-button");
+const searchInput = document.getElementById("search-input");
 const currentCity = document.querySelector(".current-city h2");
 const currentCityDate = document.querySelector(".current-city-date");
 const currentCityImg = document.querySelector(".current-city-info img");
@@ -13,8 +13,6 @@ const temperatureEl = document.querySelector(".temperature .value");
 const humidityEl = document.querySelector(".humidity .value");
 const windEl = document.querySelector(".wind .value");
 const forecastEl = document.querySelectorAll(".forecast-card");
-
-
 
 searchButton.addEventListener("click", handleClick);
 

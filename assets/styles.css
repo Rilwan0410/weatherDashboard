@@ -295,7 +295,7 @@ header h1 {
 }
 
 .forecast-temp span::after {
-  content: "\00b0 F";
+  content: " \00b0 F";
 }
 .forecast-wind span::after {
   content: "MPH";
