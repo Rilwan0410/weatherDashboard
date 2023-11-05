@@ -23,7 +23,9 @@ header {
   align-items: center;
   height: fit-content;
   width: 100%;
-  padding: 15px;
+  padding: 10px;
+  margin-top: 10px;
+  padding-bottom: 20px;
 }
 
 header h1 {
@@ -45,7 +47,7 @@ header h1 {
   width: 100%;
   gap: 15px;
   height: 700px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   /* border: 2px solid black; */
   display: flex;
   justify-content: space-between;
@@ -58,38 +60,38 @@ header h1 {
   width: 400px;
   background: rgba(255, 255, 255, 0.6);
   display: flex;
-  align-items:center;
-  flex-direction:column;
-  overflow:scroll;
+  align-items: center;
+  flex-direction: column;
+  overflow: scroll;
 }
 
-.divider{
-  width:95%;
-  height:1px;
-  background:rgb(132, 125, 125);
-  margin:40px auto;
+.divider {
+  width: 95%;
+  height: 1px;
+  background: rgb(132, 125, 125);
+  margin: 40px auto;
 }
 
-.previous-searches{
-  display:flex;
-  flex-direction:column;
-  gap:15px;
+.previous-searches {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-.previous-search{
-  background:rgba(255,255,255,0.8);
-  font-size:1.4rem;
-  border-radius:10px;
-  color:black;
-  display:grid;
-  place-items:center;
-  box-shadow:0 2px 5px grey;
-  cursor:pointer;
-  height:50px;
-  transition: .3s ease-in-out;
+.previous-search {
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1.4rem;
+  border-radius: 10px;
+  color: black;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 5px grey;
+  cursor: pointer;
+  height: 50px;
+  transition: 0.3s ease-in-out;
 }
-.previous-search:hover{
-  transform:translateY(-2px);
-  box-shadow:0 2px 10px grey;
+.previous-search:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 10px grey;
 }
 
 .dashboard-right {
@@ -131,9 +133,9 @@ header h1 {
   font-size: 1.2rem;
   cursor: pointer;
   font-weight: 500;
-  background:rgb(91, 91, 191);
+  background: rgb(91, 91, 191);
   color: rgb(80, 76, 76);
-  color:white;
+  color: white;
 }
 
 .search-input,
@@ -170,10 +172,11 @@ header h1 {
 
 .current-city-card {
   background: rgba(255, 255, 255, 0.7);
-  width: 325px;
+  /* width: 29px; */
   height: 250px;
   border-radius: 10px;
-  padding: 10px;
+  /* padding: 10px; */
+  padding: 10px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;

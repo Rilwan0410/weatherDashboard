@@ -1,2 +1,2 @@
 - Create HTML Skeleton
--
+const API_KEY = b3a21d1a0bf55d1cd270ca55053ba8b8
