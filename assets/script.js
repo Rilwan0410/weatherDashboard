@@ -13,14 +13,8 @@ const temperatureEl = document.querySelector(".temperature .value");
 const humidityEl = document.querySelector(".humidity .value");
 const windEl = document.querySelector(".wind .value");
 const forecastEl = document.querySelectorAll(".forecast-card");
-console.log(
-  forecastEl.forEach((each) => {
-    console.log(each.querySelector(".forecast-date").innerText);
-  })
-);
 
-console.log(temperatureEl, windEl, humidityEl);
-console.log(currentCity);
+
 
 searchButton.addEventListener("click", handleClick);
 
