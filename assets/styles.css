@@ -156,10 +156,42 @@ header h1 {
   padding: 0 10px;
 }
 
-.current-city h2 {
+.current-city-info{
+  display:flex;
+  justify-content: center;
+  gap:30px;
+  align-items:center;
+}
+
+.current-city-title {
   text-align: center;
-  font-size: 2.8rem;
-  font-weight: 400;
+  font-size: 3.5rem;
+  font-weight: 500;
+  /* color:rgb(77, 64, 64); */
+}
+
+.current-city-date{
+  font-size:2.5rem;
+  color:rgb(80, 62, 62);
+  font-weight:500
+}
+
+.current-city-info img{
+  width: 80px;
+  height:80px;
+}
+.current-city-info img.hide{
+  display:none;
+}
+.current-city-date.hide{
+  display:none;
+}
+
+.current-city-date::before{
+  content:"("
+}
+.current-city-date::after{
+  content:")"
 }
 
 .current-city-cards {
@@ -172,7 +204,7 @@ header h1 {
 
 .current-city-card {
   background: rgba(255, 255, 255, 0.7);
-  /* width: 29px; */
+  width: 300px;
   height: 250px;
   border-radius: 10px;
   /* padding: 10px; */
@@ -185,10 +217,13 @@ header h1 {
 .current-city-card h2 {
   color: black;
   font-weight: 500;
+  font-size: 2.8rem;
 }
 
+
+
 .current-city-card p {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: black;
   margin-top: 50px;
 }
@@ -214,12 +249,12 @@ header h1 {
 }
 
 .five-day-forecast h2 {
-  color: black;
+  /* color:rgb(77, 64, 64); */
   position: absolute;
-  font-size: 2.5rem;
-  font-weight: 400;
-  /* left:20px; */
-  top: 0;
+  font-size: 2.8rem;
+  font-weight: 500;
+  left:20px;
+  top: -10px;
 }
 
 .forecast-card {
@@ -233,7 +268,7 @@ header h1 {
   box-shadow: 0 5px 10px rgb(170, 157, 157);
 }
 
-.forecase-date {
+.forecast-date {
   font-size: 1.7rem;
   padding: 10px 0;
   font-weight: bold;
@@ -252,8 +287,19 @@ header h1 {
 }
 .forecast {
   font-size: 1.3rem;
+  font-weight: 600;
 }
 
-.forecast-category {
-  font-weight: 600;
+.forecast span {
+  font-weight: normal;
+}
+
+.forecast-temp span::after {
+  content: "\00b0 F";
+}
+.forecast-wind span::after {
+  content: "MPH";
+}
+.forecast-humidity span::after {
+  content: "%";
 }
