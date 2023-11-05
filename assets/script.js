@@ -22,7 +22,55 @@ console.log(
 console.log(temperatureEl, windEl, humidityEl);
 console.log(currentCity);
 
-searchButton.addEventListener("click", async (e) => {
+searchButton.addEventListener("click", handleClick);
+
+//==========================================================================================================================//
+
+//Functions//
+
+// function that returns a promise with the latitude and longitude of the whatever city is passed into it
+async function findLatLon(city) {
+  // Fetch function to retrieve latitude and longitude
+  return await fetch(
+    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_KEY}`
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+      return [data[0].lat, data[0].lon];
+    });
+}
+
+// function to retrieve complete data for city inputted in the input form
+async function getCityData(city, apiURL) {
+  return findLatLon(city).then(async (data) => {
+    await data;
+    let apiUrl =
+      await `${apiURL}lat=${data[0]}&lon=${data[1]}&appid=${API_KEY}`;
+
+    return fetch(apiUrl)
+      .then((data) => {
+        return data.json();
+      })
+      .then((data) => {
+        return data;
+      });
+  });
+}
+
+// function that retunrs formatted date
+function formatDate(date) {
+  return dayjs(date).format("MM/DD/YYYY");
+}
+
+// function that retrivies data associated with icon code for weather
+function getIcon(code) {
+  return `https://openweathermap.org/img/w/${code}.png`;
+}
+
+// function that handles submit and calls API in the process
+function handleClick(e) {
   e.preventDefault();
   if (searchInput.value) {
     getCityData(searchInput.value, currentWeatherURL)
@@ -81,49 +129,4 @@ searchButton.addEventListener("click", async (e) => {
         });
       });
   } else return;
-});
-
-//==========================================================================================================================//
-
-//Functions//
-
-// function that returns a promise with the latitude and longitude of the whatever city is passed into it
-async function findLatLon(city) {
-  // Fetch function to retrieve latitude and longitude
-  return await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_KEY}`
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((data) => {
-      return [data[0].lat, data[0].lon];
-    });
-}
-
-// function to retrieve complete data for city inputted in the input form
-async function getCityData(city, apiURL) {
-  return findLatLon(city).then(async (data) => {
-    await data;
-    let apiUrl =
-      await `${apiURL}lat=${data[0]}&lon=${data[1]}&appid=${API_KEY}`;
-
-    return fetch(apiUrl)
-      .then((data) => {
-        return data.json();
-      })
-      .then((data) => {
-        return data;
-      });
-  });
-}
-
-// function that retunrs formatted date
-function formatDate(date) {
-  return dayjs(date).format("MM/DD/YYYY");
-}
-
-// function that retrivies data associated with icon code for weather
-function getIcon(code) {
-  return `https://openweathermap.org/img/w/${code}.png`;
 }
