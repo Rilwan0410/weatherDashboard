@@ -15,6 +15,8 @@ const humidityEl = document.querySelector(".humidity .value");
 const windEl = document.querySelector(".wind .value");
 const forecastEl = document.querySelectorAll(".forecast-card");
 
+bringFromLocal();
+
 searchButton.addEventListener("click", handleClick);
 
 //==========================================================================================================================//
@@ -69,7 +71,16 @@ function handleClick(e) {
     getCityData(searchInput.value, currentWeatherURL)
       .then((data) => {
         console.log(data);
+        Array.from(
+          previousSearchesEl.querySelectorAll(".previous-search")
+        ).filter((child) => {
+          console.log(child.innerText === data.name);
+          if (child.innerText === data.name) {
+            previousSearchesEl.removeChild(child);
+          }
+        });
         addToPrevious(data.name);
+        addToLocal(data.name);
         currentCityDate.innerText = dayjs.unix(data.dt).format("MM/DD/YYYY");
         currentCity.innerText =
           data.name.length > 15 ? data.name.slice(0, 15) + "..." : data.name;
@@ -143,6 +154,7 @@ function addToPrevious(city) {
           }
         });
         addToPrevious(data.name);
+        addToLocal(data.name);
 
         currentCityDate.innerText = dayjs.unix(data.dt).format("MM/DD/YYYY");
         currentCity.innerText =
@@ -204,7 +216,33 @@ function addToPrevious(city) {
   }
 }
 
-// addToPrevious("miami");
-// addToPrevious("orlando");
-// addToPrevious("jamaica");
-// addToPrevious("mexico city");
+function addToLocal(el) {
+  let arr = [];
+
+  if (localStorage.getItem("prevSearch") == null) {
+    arr.push(el);
+    localStorage.setItem("prevSearch", JSON.stringify(arr));
+  } else {
+    let newArr = JSON.parse(localStorage.getItem("prevSearch"));
+    if (!newArr.includes(el)) {
+      if (newArr.length >= 7) {
+        newArr.splice(0, 1);
+        console.log(newArr);
+        newArr.push(el);
+        localStorage.setItem("prevSearch", JSON.stringify(newArr));
+      } else {
+        newArr.push(el);
+        localStorage.setItem("prevSearch", JSON.stringify(newArr));
+      }
+    } else return;
+  }
+}
+
+function bringFromLocal() {
+  if (localStorage.getItem("prevSearch")) {
+    let prevSearches = JSON.parse(localStorage.getItem("prevSearch"));
+    prevSearches.forEach((search) => {
+      addToPrevious(search);
+    });
+  } else return;
+}
