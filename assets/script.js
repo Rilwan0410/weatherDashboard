@@ -70,11 +70,9 @@ function handleClick(e) {
   if (searchInput.value) {
     getCityData(searchInput.value, currentWeatherURL)
       .then((data) => {
-        console.log(data);
         Array.from(
           previousSearchesEl.querySelectorAll(".previous-search")
         ).filter((child) => {
-          console.log(child.innerText === data.name);
           if (child.innerText === data.name) {
             previousSearchesEl.removeChild(child);
           }
@@ -99,7 +97,6 @@ function handleClick(e) {
       .then((data) => {
         searchInput.value = "";
         let fiveDayData = [];
-        console.log(data.list);
         data.list.forEach((list, index) => {
           if (
             index > 0 &&
@@ -112,8 +109,6 @@ function handleClick(e) {
         return fiveDayData;
       })
       .then((data) => {
-        console.log(data);
-
         forecastEl.forEach((day, index) => {
           day.querySelector(".forecast-date").innerText = formatDate(
             data[index]["dt_txt"].split(" ")[0]
@@ -148,7 +143,6 @@ function addToPrevious(city) {
         Array.from(
           previousSearchesEl.querySelectorAll(".previous-search")
         ).filter((child) => {
-          console.log(child.innerText === data.name);
           if (child.innerText === data.name) {
             previousSearchesEl.removeChild(child);
           }
@@ -174,7 +168,6 @@ function addToPrevious(city) {
       .then((data) => {
         searchInput.value = "";
         let fiveDayData = [];
-        console.log(data.list);
         data.list.forEach((list, index) => {
           if (
             index > 0 &&
@@ -187,8 +180,6 @@ function addToPrevious(city) {
         return fiveDayData;
       })
       .then((data) => {
-        console.log(data);
-
         forecastEl.forEach((day, index) => {
           day.querySelector(".forecast-date").innerText = formatDate(
             data[index]["dt_txt"].split(" ")[0]
@@ -227,7 +218,6 @@ function addToLocal(el) {
     if (!newArr.includes(el)) {
       if (newArr.length >= 7) {
         newArr.splice(0, 1);
-        console.log(newArr);
         newArr.push(el);
         localStorage.setItem("prevSearch", JSON.stringify(newArr));
       } else {
