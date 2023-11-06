@@ -5,6 +5,9 @@ This is a weather dashboard built using the OpenWeather API, where you can searc
 
 ## Installation
 
+![alt text](./assets/imgs/live-website.png)
+
+Search city to find current and future weahter conditions.
 
 ## Links
 Link To Deployed Website:  https://rilwan0410.github.io/weatherDashboard/ 
