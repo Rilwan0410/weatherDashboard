@@ -132,6 +132,7 @@ function handleClick(e) {
   } else return;
 }
 
+// function that adds the html of previous city entered in the parameters
 function addToPrevious(city) {
   const previousSearch = document.createElement("div");
   previousSearch.classList.add("previous-search");
@@ -206,7 +207,7 @@ function addToPrevious(city) {
     previousSearchesEl.removeChild(previousSearchesEl.children[0]);
   }
 }
-
+// adds previously searched city to local storage as long as it has a length of 7 or less
 function addToLocal(el) {
   let arr = [];
 
@@ -227,7 +228,7 @@ function addToLocal(el) {
     } else return;
   }
 }
-
+// function to instantiate persisted data of previously searched cities
 function bringFromLocal() {
   if (localStorage.getItem("prevSearch")) {
     let prevSearches = JSON.parse(localStorage.getItem("prevSearch"));
