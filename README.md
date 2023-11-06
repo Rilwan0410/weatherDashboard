@@ -7,5 +7,5 @@ This is a weather dashboard built using the OpenWeather API, where you can searc
 
 
 ## Links
-Link To Deployed Website:  
-Link to GitHub Repository:
+Link To Deployed Website:  https://rilwan0410.github.io/weatherDashboard/ 
+Link to GitHub Repository: https://github.com/Rilwan0410/weatherDashboard
