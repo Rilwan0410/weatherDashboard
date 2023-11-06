@@ -9,6 +9,8 @@ Search city to find current and future weahter conditions.
 
 ![alt text](./assets/imgs/live-website.png)
 
+![alt text](./assets/imgs/live-website2.png)
+
 
 ## Links
 Link To Deployed Website:  https://rilwan0410.github.io/weatherDashboard/ 
