@@ -3,7 +3,8 @@ const currentWeatherURL =
   "https://api.openweathermap.org/data/2.5/weather?units=imperial&";
 const fiveDayForecastURL =
   "https://api.openweathermap.org/data/2.5/forecast?units=imperial&";
-const previousSearch = [];
+const previousSearchesEl = document.querySelector(".previous-searches");
+const previousSearchEl = document.querySelector(".previous-search");
 const searchButton = document.getElementById("search-button");
 const searchInput = document.getElementById("search-input");
 const currentCity = document.querySelector(".current-city h2");
@@ -68,6 +69,7 @@ function handleClick(e) {
     getCityData(searchInput.value, currentWeatherURL)
       .then((data) => {
         console.log(data);
+        addToPrevious(data.name);
         currentCityDate.innerText = dayjs.unix(data.dt).format("MM/DD/YYYY");
         currentCity.innerText =
           data.name.length > 15 ? data.name.slice(0, 15) + "..." : data.name;
@@ -86,6 +88,7 @@ function handleClick(e) {
       .then((data) => {
         searchInput.value = "";
         let fiveDayData = [];
+        console.log(data.list);
         data.list.forEach((list, index) => {
           if (
             index > 0 &&
@@ -122,3 +125,86 @@ function handleClick(e) {
       });
   } else return;
 }
+
+function addToPrevious(city) {
+  const previousSearch = document.createElement("div");
+  previousSearch.classList.add("previous-search");
+  previousSearch.innerText = city;
+  previousSearchesEl.appendChild(previousSearch);
+  previousSearch.addEventListener("click", (e) => {
+    getCityData(e.target.innerText, currentWeatherURL)
+      .then((data) => {
+        Array.from(
+          previousSearchesEl.querySelectorAll(".previous-search")
+        ).filter((child) => {
+          console.log(child.innerText === data.name);
+          if (child.innerText === data.name) {
+            previousSearchesEl.removeChild(child);
+          }
+        });
+        addToPrevious(data.name);
+
+        currentCityDate.innerText = dayjs.unix(data.dt).format("MM/DD/YYYY");
+        currentCity.innerText =
+          data.name.length > 15 ? data.name.slice(0, 15) + "..." : data.name;
+        currentCityDate.classList.remove("hide");
+        currentCityImg.classList.remove("hide");
+        currentCityImg.src = getIcon(data.weather[0].icon);
+        temperatureEl.innerText = data.main.temp.toFixed(1);
+        windEl.innerText = data.wind.speed.toFixed(1);
+        humidityEl.innerText = data.main.humidity;
+
+        return data;
+      })
+      .then(() => {
+        return getCityData(e.target.innerText, fiveDayForecastURL);
+      })
+      .then((data) => {
+        searchInput.value = "";
+        let fiveDayData = [];
+        console.log(data.list);
+        data.list.forEach((list, index) => {
+          if (
+            index > 0 &&
+            list["dt_txt"].split(" ")[0] !==
+              data.list[index - 1]["dt_txt"].split(" ")[0]
+          ) {
+            fiveDayData.push(list);
+          }
+        });
+        return fiveDayData;
+      })
+      .then((data) => {
+        console.log(data);
+
+        forecastEl.forEach((day, index) => {
+          day.querySelector(".forecast-date").innerText = formatDate(
+            data[index]["dt_txt"].split(" ")[0]
+          );
+
+          day.querySelector(".forecast-temp span").innerText =
+            data[index].main.temp.toFixed(1);
+
+          day.querySelector(".forecast-wind span").innerText =
+            data[index].wind.speed.toFixed(1);
+
+          day.querySelector(".forecast-humidity span").innerText =
+            data[index].main.humidity;
+
+          day.querySelector(".forecast-humidity span").innerText =
+            data[index].main.humidity;
+
+          day.querySelector("img").src = getIcon(data[index].weather[0].icon);
+        });
+      });
+  });
+
+  if (previousSearchesEl.children.length > 7) {
+    previousSearchesEl.removeChild(previousSearchesEl.children[0]);
+  }
+}
+
+// addToPrevious("miami");
+// addToPrevious("orlando");
+// addToPrevious("jamaica");
+// addToPrevious("mexico city");
